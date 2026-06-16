@@ -26,7 +26,10 @@ app.use(cors(
 
 
 // rutas backend
-//const bancosRoutes = require('./rutas/bancos');
+const empresaRoutes = require('./rutas/empresa');
+const sucursalesRoutes = require('./rutas/sucursales');
+const proveedorRoutes = require('./rutas/proveedor');
+const areastrabajoRoutes = require('./rutas/areastrabajo');
 
 app.set('port', process.env.PORT || 3000);
 

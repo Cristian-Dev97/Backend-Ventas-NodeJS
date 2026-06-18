@@ -30,6 +30,7 @@ const empresaRoutes = require('./rutas/empresa');
 const sucursalesRoutes = require('./rutas/sucursales');
 const proveedorRoutes = require('./rutas/proveedor');
 const areastrabajoRoutes = require('./rutas/areastrabajo');
+const empleadosRoutes = require('./rutas/empleados');
 
 app.set('port', process.env.PORT || 3000);
 

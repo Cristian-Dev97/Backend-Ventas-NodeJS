@@ -31,6 +31,18 @@ const sucursalesRoutes = require('./rutas/sucursales');
 const proveedorRoutes = require('./rutas/proveedor');
 const areastrabajoRoutes = require('./rutas/areastrabajo');
 const empleadosRoutes = require('./rutas/empleados');
+const usuarioRoutes = require('./rutas/usuario');
+const clientesRoutes = require('./rutas/clientes');
+const tipoproductoRoutes = require('./rutas/tipoproducto');
+const productoRouter = require('./rutas/producto');
+const formapagoRouter = require('./rutas/formapago');
+const encabezadocompraRouter = require('./rutas/encabezadocompra');
+const detallecompraRouter = require('./rutas/detallecompra');
+const encabezadoventaRouter = require('./rutas/encabezadoventa');
+const detalleventaRouter = require('./rutas/detalleventa');
+const cxcobrarRouter = require('./rutas/cxcobrar');
+const cxpagarRouter = require('./rutas/cxpagar');
+const pagosRouter = require('./rutas/pagos');
 
 app.set('port', process.env.PORT || 3000);
 

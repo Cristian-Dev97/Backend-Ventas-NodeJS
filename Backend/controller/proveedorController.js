@@ -1,0 +1,61 @@
+const controller = {};
+
+controller.list = (req, res) => {
+    req.getConnection((error,conn) =>{
+        conn.query('select * from proveedor',(err,proveedor) =>{
+            if(err){
+                res.json(err);
+            }
+            res.json(proveedor);
+        });
+
+    });
+
+};
+
+controller.edit = (req, res) => {
+
+    const {idprov}= req.params;
+
+    req.getConnection((err,conn) =>{
+        conn.query('select *from proveedor where idprov = ?', [idprov], (err,proveedor) => {
+            res.json(proveedor[0]);
+
+        });
+
+    });
+
+};
+
+controller.save = (req,res) =>{
+    const data = req.body;
+   req.getConnection((err,conn)=> {
+       conn.query('insert into proveedor SET ?', [data], (err,proveedor) => {
+        res.json(proveedor);
+       });
+   })
+};
+
+controller.update = (req,res) =>{
+
+    const {idprov}= req.params;
+    const nuevo_proveedor = req.body;
+  
+    req.getConnection((err, conn) => {
+        conn.query('update proveedor SET ? where idprov =?', [nuevo_proveedor, idprov], (err,rows) =>{ 
+            res.json({ message: "Registro Actualizado" }); 
+
+        });
+    });
+};
+
+controller.delete = (req,res) =>{
+    const {idprov}= req.params; 
+  req.getConnection((err,conn) => {
+      conn.query('UPDATE proveedor SET estado = "INACTIVO" WHERE idprov = ?', [idprov], (err, rows) => {
+        res.json({ message: "Registro Eliminado" }); 
+      });
+  })
+};
+
+module.exports = controller;

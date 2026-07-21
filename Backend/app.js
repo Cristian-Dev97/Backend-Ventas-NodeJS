@@ -31,6 +31,7 @@ const sucursalesRoutes = require('./rutas/sucursales');
 const proveedorRoutes = require('./rutas/proveedor');
 const areastrabajoRoutes = require('./rutas/areastrabajo');
 const empleadosRoutes = require('./rutas/empleados');
+const tipousuariodosRoutes = require('./rutas/tipousuario');
 const usuarioRoutes = require('./rutas/usuario');
 const clientesRoutes = require('./rutas/clientes');
 const tipoproductoRoutes = require('./rutas/tipoproducto');
@@ -62,6 +63,23 @@ app.use(bodyParser.json());
 
 //rutas frontend
 app.use('/api/empresa', empresaRoutes);
+app.use('/api/sucursales', sucursalesRoutes);
+app.use('/api/proveedor', proveedorRoutes);
+app.use('/api/areastrabajo', areastrabajoRoutes);
+app.use('/api/empleados', empleadosRoutes);
+app.use('/api/tipousuario', tipousuariodosRoutes);
+app.use('/api/usuario', usuarioRoutes);
+app.use('/api/clientes', clientesRoutes);
+app.use('/api/tipoproducto', tipoproductoRoutes);
+app.use('/api/producto', productoRouter);
+app.use('/api/formapago', formapagoRouter);
+app.use('/api/encabezadocompra', encabezadocompraRouter);
+app.use('/api/detallecompra', detallecompraRouter);
+app.use('/api/encabezadoventa', encabezadoventaRouter);
+app.use('/api/detalleventa', detalleventaRouter);
+app.use('/api/cxcobrar', cxcobrarRouter);
+app.use('/api/cxpagar', cxpagarRouter);
+app.use('/api/pagos', pagosRouter);
 
 
 // archivos estaticos frontend

@@ -1,1 +1,39 @@
-<p>encabezadocompra works!</p>
+<nav class="navbar navbar-dark bg-dark">
+    <a href="/" class="navbar-brand">REGISTRO DE ENCABEZADOS DE COMPRAS</a>
+</nav>
+
+<div class="container">  
+    <div class="row mt-25">          
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>ID COMPRA</th>
+                    <th>ID EMPRESA</th>
+                    <th>ID SUC</th>
+                    <th>ID PROV</th>
+                    <th>ID USUARIO</th>
+                    <th>ID F. PAGO</th>
+                    <th>F. COMPRA</th>
+                    <th>ESTADO</th>
+                    <th>ACCIONES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let User of TUser">
+                    <td>{{User.num_compra}}</td>
+                    <td>{{User.idempresa}}</td>
+                    <td>{{User.idsuc}}</td>
+                    <td>{{User.idprov}}</td>
+                    <td>{{User.userid}}</td>
+                    <td>{{User.idfpago}}</td>
+                    <td>{{User.fecha_compra}}</td>
+                    <td>{{User.estado}}</td>
+                    <td style="white-space: nowrap;">  
+                        <button class="btn btn-danger btn-sm mx-1">Eliminar</button>
+                        <button class="btn btn-success btn-sm mx-1">Actualizar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

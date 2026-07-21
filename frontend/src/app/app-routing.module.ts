@@ -18,6 +18,8 @@ import { DetalleventaComponent } from './components/detalleventa/detalleventa.co
 import { CxcobrarComponent } from './components/cxcobrar/cxcobrar.component';
 import { CxpagarComponent } from './components/cxpagar/cxpagar.component';
 import { PagosComponent } from './components/pagos/pagos.component';
+import { EmpresaEditComponent } from './components/empresa-edit/empresa-edit.component';
+import { NavegacionComponent } from './components/navegacion/navegacion.component';
 
 const routes: Routes = [
 
@@ -109,6 +111,16 @@ const routes: Routes = [
   {
     path: 'pagos',
     component :PagosComponent
+  },
+
+  {
+    path: 'empresa/edit/:id',
+    component : EmpresaEditComponent
+  },
+
+    {
+    path: 'navegacion',
+    component : NavegacionComponent
   }
 
 ];

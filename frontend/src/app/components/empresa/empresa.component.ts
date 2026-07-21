@@ -1,6 +1,9 @@
 import { Component, OnInit  } from '@angular/core';
 import {  empresa } from 'src/app/Interface/user';
 import { DataService } from '../../Services/data.service';
+import * as XLSX from 'xlsx';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-empresa',
@@ -9,7 +12,10 @@ import { DataService } from '../../Services/data.service';
 })
 export class EmpresaComponent implements OnInit {
 
+  name = 'Empresas.xlsx';
+
   TUser: any = [];
+  valorInput: number | undefined;
   user: empresa = {
     idempresa:  null ,
     nombre: null,
@@ -34,4 +40,49 @@ export class EmpresaComponent implements OnInit {
         
         }, err => console.error(err));
   }
+
+  AgregarValor(){
+    delete this.user.idempresa;   
+    this.Data.save(this.user,'/empresa')
+       .subscribe(
+         res => {
+
+this.getUser();
+        },
+         err => console.error(err)
+      );
 }
+
+  EliminarData(id: number){
+    this.Data.delete(id, '/empresa')
+      .subscribe(
+        res => {
+          this.getUser();
+        },
+        err => console.error(err)
+      );
+  }
+
+  exportToExcel(): void {
+    let element = document.getElementById('tabla');
+    const worksheet: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+    const book: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(book, worksheet, 'Sheet1');
+    XLSX.writeFile(book, this.name);
+  }
+
+  public openPDF(): void {
+    let DATA: any = document.getElementById('tabla');
+    html2canvas(DATA).then((canvas) => {
+      let fileWidth = 208;
+      let fileHeight = (canvas.height * fileWidth) / canvas.width;
+      const FILEURI = canvas.toDataURL('image/png');
+      let PDF = new jsPDF('p', 'mm', 'a4');
+      let position = 0;
+      PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
+      PDF.save('empresas.pdf');
+    });
+  }
+
+}
+

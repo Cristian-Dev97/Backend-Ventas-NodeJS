@@ -1,1 +1,36 @@
-<p>areastrabajo works!</p>
+<nav class="navbar navbar-dark bg-dark">
+    <a href="/" class="navbar-brand">REGISTRO DE ÁREAS DE TRABAJO</a>
+</nav>
+
+<div class="container">  
+    <div class="row mt-25">          
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>ID AREA</th>
+                    <th>ID EMPRESA</th>
+                    <th>ID SUCURSAL</th>
+                    <th>ÁREA</th>
+                    <th>FECHA CREACIÓN</th>
+                    <th>ESTADO</th>
+                    <th>ACCIONES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let User of TUser">
+                    <td>{{User.idarea}}</td>
+                    <td>{{User.idempresa}}</td>
+                    <td>{{User.idsuc}}</td>
+                    <td>{{User.area}}</td>
+                    <td>{{User.fecha_creacion | date:'dd/MM/yyyy'}}</td>
+                    <td>{{User.estado}}</td>
+                    <!-- Agregamos white-space: nowrap para que los botones no se apilen -->
+                    <td style="white-space: nowrap;">  
+                        <button class="btn btn-danger btn-sm mx-1">Eliminar</button>
+                        <button class="btn btn-success btn-sm mx-1">Actualizar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +27,9 @@ import { PagosComponent } from './components/pagos/pagos.component';
 
 import { DataService } from './Services/data.service';
 import { HttpClientModule } from '@angular/common/http';
+import { EmpresaEditComponent } from './components/empresa-edit/empresa-edit.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavegacionComponent } from './components/navegacion/navegacion.component';
 
 @NgModule({
   declarations: [
@@ -45,12 +51,18 @@ import { HttpClientModule } from '@angular/common/http';
     DetalleventaComponent,
     CxcobrarComponent,
     CxpagarComponent,
-    PagosComponent
+    PagosComponent,
+    EmpresaEditComponent,
+    NavegacionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatMenuModule   
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

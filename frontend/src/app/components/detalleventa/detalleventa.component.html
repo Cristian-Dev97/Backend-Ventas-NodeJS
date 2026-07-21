@@ -1,1 +1,50 @@
-<p>detalleventa works!</p>
+<nav class="navbar navbar-dark bg-dark">
+    <a href="/" class="navbar-brand">REGISTRO DE DETALLES DE VENTA</a>
+</nav>
+
+<div class="container">  
+    <div class="row mt-25">
+        <!-- table-responsive es necesario por la gran cantidad de columnas -->
+        <div class="table-responsive">          
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>ID DET</th>
+                        <th>ID EMPRESA</th>
+                        <th>ID SUC</th>
+                        <th>ID CLIENTE</th>
+                        <th>ID VENTA</th>
+                        <th>ID PROD</th>
+                        <th>CANTIDAD</th>
+                        <th>PRECIO</th>
+                        <th>ISV</th>
+                        <th>DESCUENTO</th>
+                        <th>TOTAL</th>
+                        <th>ESTADO</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let User of TUser">
+                        <td>{{User.iddetventa}}</td>
+                        <td>{{User.idempresa}}</td>
+                        <td>{{User.idsuc}}</td>
+                        <td>{{User.num_clie}}</td>
+                        <td>{{User.num_venta}}</td>
+                        <td>{{User.num_prod}}</td>
+                        <td>{{User.cantidad}}</td>
+                        <td>{{User.precio}}</td>
+                        <td>{{User.isv}}</td>
+                        <td>{{User.descuento}}</td>
+                        <td>{{User.total}}</td>
+                        <td>{{User.estado}}</td>
+                        <td style="white-space: nowrap;">  
+                            <button class="btn btn-danger btn-sm mx-1">Eliminar</button>
+                            <button class="btn btn-success btn-sm mx-1">Actualizar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

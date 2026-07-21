@@ -1,1 +1,44 @@
-<p>sucursales works!</p>
+<nav class="navbar navbar-dark bg-dark">
+    <!-- Cambiado a Sucursales -->
+    <a href="/" class="navbar-brand">REGISTRO DE SUCURSALES</a>
+</nav>
+
+<div class="form-group">
+                        <option>Seleccione la Empresa</option>
+                        <select class="form-control" size="1" [(ngModel)]="user.idempresa" name="idempresa" required>
+                                 <option *ngFor="let lista of Empresalist" value={{lista.idempresa}}>{{lista.nombre}}</option>
+                        </select>
+                    </div>
+
+<div class="container">  
+    <div class="row mt-25">          
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>ID SUC</th>
+                    <th>ID EMPRESA</th>
+                    <th>SUCURSAL</th>
+                    <th>DIRECCIÓN</th>
+                    <th>TELÉFONO</th>
+                    <th>ESTADO</th>
+                    <th>ACCIONES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- El *ngFor se mantiene con TUser, pero ahora accede a las propiedades de sucursales -->
+                <tr *ngFor="let User of TUser">
+                    <td>{{User.idsuc}}</td>
+                    <td>{{User.idempresa}}</td>
+                    <td>{{User.sucursal}}</td>
+                    <td>{{User.dirsuc}}</td>
+                    <td>{{User.telefono}}</td>
+                    <td>{{User.estado}}</td>
+                    <td>  
+                        <button class="btn btn-danger btn-sm mx-1">Eliminar</button>
+                        <button class="btn btn-success btn-sm mx-1">Actualizar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

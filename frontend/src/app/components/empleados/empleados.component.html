@@ -1,1 +1,53 @@
-<p>empleados works!</p>
+<nav class="navbar navbar-dark bg-dark">
+    <a href="/" class="navbar-brand">REGISTRO DE EMPLEADOS</a>
+</nav>
+
+<div class="container">  
+    <div class="row mt-25">
+        <!-- Agregado table-responsive para manejar el ancho de 14 columnas -->
+        <div class="table-responsive">          
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>ID EMP</th>
+                        <th>ID EMPRESA</th>
+                        <th>ID SUC</th>
+                        <th>ID ÁREA</th>
+                        <th>IDENTIDAD</th>
+                        <th>F. NAC</th>
+                        <th>NOMBRES</th>
+                        <th>APELLIDOS</th>
+                        <th>GÉNERO</th>
+                        <th>EST. CIVIL</th>
+                        <th>DIRECCIÓN</th>
+                        <th>F. CREACIÓN</th>
+                        <th>ESTADO</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let User of TUser">
+                        <td>{{User.idemp}}</td>
+                        <td>{{User.idempresa}}</td>
+                        <td>{{User.idsuc}}</td>
+                        <td>{{User.idarea}}</td>
+                        <td>{{User.identidad}}</td>
+                        <td>{{User.fecha_nac}}</td>
+                        <td>{{User.nombres}}</td>
+                        <td>{{User.apellidos}}</td>
+                        <td>{{User.genero}}</td>
+                        <td>{{User.estadocivil}}</td>
+                        <td>{{User.direccion}}</td>
+                        <td>{{User.fecha_creacion | date:'dd/MM/yyyy'}}</td>
+                        <td>{{User.estado}}</td>
+                        <!-- white-space: nowrap para que los botones no se apilen -->
+                        <td style="white-space: nowrap;">  
+                            <button class="btn btn-danger btn-sm mx-1">Eliminar</button>
+                            <button class="btn btn-success btn-sm mx-1">Actualizar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

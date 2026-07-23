@@ -33,4 +33,25 @@ constructor(private Data: DataService) { }
           
           }, err => console.error(err));
     }
+
+      AgregarValor(){
+      delete this.user.num_venta;   
+      this.Data.save(this.user,'/encabezadoventa')
+        .subscribe(
+          res => {
+
+  this.getUser();
+          },
+          err => console.error(err)
+        );
+  }
+    EliminarData(id: number){
+      this.Data.delete(id, '/encabezadoventa')
+        .subscribe(
+          res => {
+            this.getUser();
+          },
+          err => console.error(err)
+        );
+    }
 }

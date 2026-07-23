@@ -2,6 +2,82 @@
     <a href="/" class="navbar-brand">REGISTRO DE CLIENTES</a>
 </nav>
 
+<div class="agregar_contenedor"></div>
+<div class="row mt-5">
+<div class="card">
+    <div class="card-body">
+        <form id="formulario" name="formulario" #f="ngForm" (ngSubmit)="AgregarValor()" novalidate >
+          
+          <!-- Primary Key (num_clie) oculto -->
+          <div class="form-group">
+            <label for="" class="control-label" hidden>Registro No.</label>
+            <input type="text" readonly="readonly" [(ngModel)]="user.num_clie" name="num_clie" placeholder="No" class="form-control" required hidden>
+          </div>                  
+
+          <div class="form-group">
+              <label for="" class="control-label">ID Empresa</label>
+              <input type="number" [(ngModel)]="user.idempresa" name="idempresa" placeholder="DIGITE EL ID EMPRESA" class="form-control" autofocus>
+          </div>
+
+          <div class="form-group">
+              <label for="" class="control-label">ID Sucursal</label>
+              <input type="number" [(ngModel)]="user.idsuc" name="idsuc" placeholder="DIGITE EL ID SUCURSAL" class="form-control">
+          </div>
+
+          <div class="form-group">
+              <label for="" class="control-label">Identidad</label>
+              <input type="text" [(ngModel)]="user.identidad" name="identidad" placeholder="DIGITE LA IDENTIDAD" class="form-control">
+          </div>
+
+          <div class="form-group">
+              <label for="" class="control-label">RTN</label>
+              <input type="text" [(ngModel)]="user.rtn" name="rtn" placeholder="DIGITE EL RTN" class="form-control">
+          </div>
+
+          <div class="form-group">
+              <label for="" class="control-label">Fecha Nacimiento</label>
+              <input type="date" [(ngModel)]="user.fecha_nac" name="fecha_nac" class="form-control">
+          </div>
+
+          <div class="form-group">
+              <label for="" class="control-label">Nombre</label>
+              <input type="text" [(ngModel)]="user.nombre" name="nombre" placeholder="DIGITE EL NOMBRE" class="form-control">
+          </div>
+
+          <div class="form-group">
+              <label for="" class="control-label">Teléfono</label>
+              <input type="text" [(ngModel)]="user.telefono" name="telefono" placeholder="DIGITE EL TELÉFONO" class="form-control">
+          </div>
+
+          <div class="form-group">
+              <label for="" class="control-label">Dirección</label>
+              <input type="text" [(ngModel)]="user.direccion" name="direccion" placeholder="DIGITE LA DIRECCIÓN" class="form-control">
+          </div>
+
+          <div class="form-group">
+              <label for="" class="control-label">Correo</label>
+              <input type="text" [(ngModel)]="user.correo" name="correo" placeholder="DIGITE EL CORREO" class="form-control">
+          </div>
+
+          <div class="form-group">
+              <label for="" class="control-label">Fecha Creación</label>
+              <input type="date" [(ngModel)]="user.fecha_creacion" name="fecha_creacion" class="form-control">
+          </div>   
+
+          <div class="form-group">
+              <label for="" class="control-label">Estado</label>
+              <input type="text" [(ngModel)]="user.estado" name="estado" placeholder="Ej: Activo / Inactivo" class="form-control">
+          </div>
+
+          <button type="submit" class="btn btn-primary" formnovalidate value="Save" onclick="javascript:alert('Registro Almacenado')">
+              Agregar
+          </button>
+        </form>
+    </div>
+</div>
+</div>
+<br>
+
 <div class="container">  
     <div class="row mt-25">
         <!-- table-responsive es necesario por la gran cantidad de columnas -->
@@ -38,10 +114,10 @@
                         <td>{{User.correo}}</td>
                         <td>{{User.fecha_creacion}}</td>
                         <td>{{User.estado}}</td>
-                        <td style="white-space: nowrap;">  
-                            <button class="btn btn-danger btn-sm mx-1">Eliminar</button>
-                            <button class="btn btn-success btn-sm mx-1">Actualizar</button>
-                        </td>
+                            <td>
+                                <button class="btn btn-danger" (click)="EliminarData(User.num_clie)" onclick="javascript:alert('Registro Eliminado')">Eliminar</button>
+                                <button class="btn btn-success" [routerLink]="['/clientes/edit', User.num_clie]">Actualizar</button>
+                            </td>
                     </tr>
                 </tbody>
             </table>

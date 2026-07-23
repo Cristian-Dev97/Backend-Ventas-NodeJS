@@ -37,4 +37,25 @@ export class DetallecompraComponent implements OnInit{
           
           }, err => console.error(err));
     }
+
+      AgregarValor(){
+      delete this.user.iddetcomp;   
+      this.Data.save(this.user,'/detallecompra')
+        .subscribe(
+          res => {
+
+  this.getUser();
+          },
+          err => console.error(err)
+        );
+  }
+    EliminarData(id: number){
+      this.Data.delete(id, '/detallecompra')
+        .subscribe(
+          res => {
+            this.getUser();
+          },
+          err => console.error(err)
+        );
+    }
 }

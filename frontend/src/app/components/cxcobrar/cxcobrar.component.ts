@@ -42,4 +42,25 @@ export class CxcobrarComponent implements OnInit{
           
           }, err => console.error(err));
     }
+
+      AgregarValor(){
+      delete this.user.idcxc;   
+      this.Data.save(this.user,'/cxcobrar')
+        .subscribe(
+          res => {
+
+  this.getUser();
+          },
+          err => console.error(err)
+        );
+  }
+    EliminarData(id: number){
+      this.Data.delete(id, '/cxcobrar')
+        .subscribe(
+          res => {
+            this.getUser();
+          },
+          err => console.error(err)
+        );
+    }
 }

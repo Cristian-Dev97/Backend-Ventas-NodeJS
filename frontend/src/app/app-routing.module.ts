@@ -20,6 +20,23 @@ import { CxpagarComponent } from './components/cxpagar/cxpagar.component';
 import { PagosComponent } from './components/pagos/pagos.component';
 import { EmpresaEditComponent } from './components/empresa-edit/empresa-edit.component';
 import { NavegacionComponent } from './components/navegacion/navegacion.component';
+import { AreastrabajoEditComponent } from './components/areastrabajo-edit/areastrabajo-edit.component';
+import { SucursalesEditComponent } from './components/sucursales-edit/sucursales-edit.component';
+import { ProveedorEditComponent } from './components/proveedor-edit/proveedor-edit.component';
+import { EmpleadosEditComponent } from './components/empleados-edit/empleados-edit.component';
+import { TipousuarioEditComponent } from './components/tipousuario-edit/tipousuario-edit.component';
+import { UsuarioEditComponent } from './components/usuario-edit/usuario-edit.component';
+import { ClientesEditComponent } from './components/clientes-edit/clientes-edit.component';
+import { TipoproductoEditComponent } from './components/tipoproducto-edit/tipoproducto-edit.component';
+import { ProductoEditComponent } from './components/producto-edit/producto-edit.component';
+import { FormapagoEditComponent } from './components/formapago-edit/formapago-edit.component';
+import { EncabezadocompraEditComponent } from './components/encabezadocompra-edit/encabezadocompra-edit.component';
+import { DetallecompraEditComponent } from './components/detallecompra-edit/detallecompra-edit.component';
+import { EncabezadoventaEditComponent } from './components/encabezadoventa-edit/encabezadoventa-edit.component';
+import { DetalleventaEditComponent } from './components/detalleventa-edit/detalleventa-edit.component';
+import { CxcobrarEditComponent } from './components/cxcobrar-edit/cxcobrar-edit.component';
+import { CxpagarEditComponent } from './components/cxpagar-edit/cxpagar-edit.component';
+import { PagosEditComponent } from './components/pagos-edit/pagos-edit.component';
 
 const routes: Routes = [
 
@@ -118,7 +135,92 @@ const routes: Routes = [
     component : EmpresaEditComponent
   },
 
-    {
+  {
+    path: 'areastrabajo/edit/:id',
+    component : AreastrabajoEditComponent
+  },
+
+  {
+    path: 'sucursales/edit/:id',
+    component : SucursalesEditComponent
+  },
+
+  {
+    path: 'proveedor/edit/:id',
+    component : ProveedorEditComponent
+  },
+
+  {
+    path: 'empleados/edit/:id',
+    component : EmpleadosEditComponent
+  },
+
+  {
+    path: 'tipousuario/edit/:id',
+    component : TipousuarioEditComponent
+  },
+
+  {
+    path: 'usuario/edit/:id',
+    component : UsuarioEditComponent
+  },
+
+  {
+    path: 'clientes/edit/:id',
+    component : ClientesEditComponent
+  },
+
+  {
+    path: 'tipoproducto/edit/:id',
+    component : TipoproductoEditComponent 
+  },
+
+  {
+    path: 'producto/edit/:id',
+    component : ProductoEditComponent
+  },
+
+  {
+    path: 'formapago/edit/:id',
+    component : FormapagoEditComponent
+  },
+
+  {
+    path: 'encabezadocompra/edit/:id',
+    component : EncabezadocompraEditComponent
+  },
+
+  {
+    path: 'detallecompra/edit/:id',
+    component : DetallecompraEditComponent
+  },
+
+  {
+    path: 'encabezadoventa/edit/:id',
+    component : EncabezadoventaEditComponent
+  },
+
+  {
+    path: 'detalleventa/edit/:id',
+    component : DetalleventaEditComponent
+  },
+
+  {
+    path: 'cxcobrar/edit/:id',
+    component : CxcobrarEditComponent
+  },
+
+  {
+    path: 'cxpagar/edit/:id',
+    component : CxpagarEditComponent
+  },
+
+  {
+    path: 'pagos/edit/:id',
+    component : PagosEditComponent
+  },
+
+  {
     path: 'navegacion',
     component : NavegacionComponent
   }

@@ -38,4 +38,25 @@ export class DetalleventaComponent implements OnInit{
           }, err => console.error(err));
     }
 
+        AgregarValor(){
+        delete this.user.iddetventa;   
+        this.Data.save(this.user,'/detalleventa')
+          .subscribe(
+            res => {
+
+    this.getUser();
+            },
+            err => console.error(err)
+          );
+    }
+      EliminarData(id: number){
+        this.Data.delete(id, '/detalleventa')
+          .subscribe(
+            res => {
+              this.getUser();
+            },
+            err => console.error(err)
+          );
+      }
+
 }

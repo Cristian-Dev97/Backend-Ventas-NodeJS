@@ -10,6 +10,7 @@ import { DataService } from '../../Services/data.service';
 export class SucursalesComponent implements OnInit {
   
   TUser: any = [];
+  valorInput: number | undefined;
   user: sucursales = {
     idsuc: null,
     idempresa: null,
@@ -19,13 +20,10 @@ export class SucursalesComponent implements OnInit {
     estado: 'Activo'
   }
 
-  Empresalist: any;
-
 
   constructor(private Data: DataService) { }
 
   ngOnInit(): void {
-    this.getDropListEmpresa();
     this.getUser();
   }
   getUser() {
@@ -36,10 +34,26 @@ export class SucursalesComponent implements OnInit {
         }, err => console.error(err));
   }
 
-  getDropListEmpresa() {
-    this.Data.getDropListEmpresa().subscribe((data:any)=>{
-      this.Empresalist=data;
-    })
+   AgregarValor(){
+    delete this.user.idsuc;   
+    this.Data.save(this.user,'/sucursales')
+       .subscribe(
+         res => {
+
+    this.getUser();
+            },
+            err => console.error(err)
+          );
+    }
+
+  EliminarData(id: number){
+    this.Data.delete(id, '/sucursales')
+      .subscribe(
+        res => {
+          this.getUser();
+        },
+        err => console.error(err)
+      );
   }
 
 }

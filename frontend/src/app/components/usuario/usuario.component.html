@@ -2,6 +2,68 @@
     <a href="/" class="navbar-brand">REGISTRO DE USUARIOS</a>
 </nav>
 
+<div class="agregar_contenedor"></div>
+<div class="row mt-5">
+<div class="card">
+    <div class="card-body">
+        <form id="formulario" name="formulario" #f="ngForm" (ngSubmit)="AgregarValor()" novalidate >
+          
+          <!-- Primary Key (ÚNICO CAMPO OCULTO) -->
+          <div class="form-group">
+            <label for="" class="control-label" hidden>Registro No.</label>
+            <input type="text" readonly="readonly" [(ngModel)]="user.userid" name="userid" placeholder="No" class="form-control" required hidden>
+          </div>                  
+
+          <div class="form-group">
+              <label for="" class="control-label">ID Empresa</label>
+              <input type="number" [(ngModel)]="user.idempresa" name="idempresa" placeholder="DIGITE EL ID EMPRESA" class="form-control" autofocus>
+          </div>
+
+          <div class="form-group">
+              <label for="" class="control-label">ID Sucursal</label>
+              <input type="number" [(ngModel)]="user.idsuc" name="idsuc" placeholder="DIGITE EL ID SUCURSAL" class="form-control">
+          </div>
+
+          <div class="form-group">
+              <label for="" class="control-label">ID Tipo Usuario</label>
+              <input type="number" [(ngModel)]="user.idtpusuario" name="idtpusuario" placeholder="DIGITE EL ID TIPO USUARIO" class="form-control">
+          </div>
+
+          <div class="form-group">
+              <label for="" class="control-label">ID Empleado</label>
+              <input type="number" [(ngModel)]="user.idemp" name="idemp" placeholder="DIGITE EL ID EMPLEADO" class="form-control">
+          </div>
+
+          <div class="form-group">
+              <label for="" class="control-label">Usuario</label>
+              <input type="text" [(ngModel)]="user.usuario" name="usuario" placeholder="DIGITE EL USUARIO" class="form-control">
+          </div>
+
+          <div class="form-group">
+              <label for="" class="control-label">Clave</label>
+              <input type="text" [(ngModel)]="user.clave" name="clave" placeholder="DIGITE LA CLAVE" class="form-control">
+          </div>
+
+          <div class="form-group">
+              <label for="" class="control-label">Tipo</label>
+              <input type="text" [(ngModel)]="user.tipo" name="tipo" placeholder="DIGITE EL TIPO" class="form-control">
+          </div>
+
+          <div class="form-group">
+              <label for="" class="control-label">Estado</label>
+              <input type="text" [(ngModel)]="user.estado" name="estado" placeholder="DIGITE EL ESTADO" class="form-control">
+          </div>
+
+          <!-- Botón con sus eventos originales intactos -->
+          <button type="submit" class="btn btn-primary" formnovalidate value="Save" onclick="javascript:alert('Registro Almacenado')">
+              Agregar
+          </button>
+        </form>
+    </div>
+</div>
+</div>
+<br>
+
 <div class="container">  
     <div class="row mt-25">
         <!-- table-responsive para manejar el ancho de 10 columnas -->
@@ -32,9 +94,9 @@
                         <td>{{User.clave}}</td>
                         <td>{{User.tipo}}</td>
                         <td>{{User.estado}}</td>
-                        <td style="white-space: nowrap;">  
-                            <button class="btn btn-danger btn-sm mx-1">Eliminar</button>
-                            <button class="btn btn-success btn-sm mx-1">Actualizar</button>
+                        <td>
+                            <button class="btn btn-danger" (click)="EliminarData(User.userid)" onclick="javascript:alert('Registro Eliminado')">Eliminar</button>
+                            <button class="btn btn-success" [routerLink]="['/usuario/edit', User.userid]">Actualizar</button>
                         </td>
                     </tr>
                 </tbody>

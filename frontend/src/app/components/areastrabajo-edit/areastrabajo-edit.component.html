@@ -1,0 +1,51 @@
+<nav class="navbar navbar-dark bg-dark">
+    <a href="/" class="navbar-brand">ÁREAS DE TRABAJO</a>
+</nav>
+
+<div class="row mt-5">
+    <div class="card">
+        <div class="card-body">
+            <form #f="ngForm" (ngSubmit)="updateUser()" novalidate>
+                
+                <!-- Primary Key (ÚNICO CAMPO OCULTO) -->
+                <div class="form-group">
+                    <input type="text" readonly="readonly" [(ngModel)]="user.idarea" name="idarea" hidden>
+                </div>                  
+
+                <!-- idempresa -->
+                <div class="form-group">
+                    <label class="control-label">ID Empresa</label>
+                    <input type="number" [(ngModel)]="user.idempresa" name="idempresa" placeholder="DIGITE EL ID DE LA EMPRESA" class="form-control" autofocus>
+                </div>
+
+                <!-- idsuc -->
+                <div class="form-group">
+                    <label class="control-label">ID Sucursal</label>
+                    <input type="number" [(ngModel)]="user.idsuc" name="idsuc" placeholder="DIGITE EL ID DE LA SUCURSAL" class="form-control">
+                </div>
+
+                <!-- area -->
+                <div class="form-group">
+                    <label class="control-label">Área</label>
+                    <input type="text" [(ngModel)]="user.area" name="area" placeholder="DIGITE EL ÁREA DE TRABAJO" class="form-control">
+                </div>
+
+                <!-- fecha_creacion -->
+                <div class="form-group">
+                    <label class="control-label">Fecha Creación</label>
+                    <input type="date" [(ngModel)]="user.fecha_creacion" name="fecha_creacion" class="form-control">
+                </div>
+
+                <!-- estado -->
+                <div class="form-group">
+                    <label class="control-label">Estado</label>
+                    <input type="text" [(ngModel)]="user.estado" name="estado" placeholder="Ej: Activo / Inactivo" class="form-control">
+                </div>
+
+                <button type="submit" class="btn btn-success btn-block" (click)="updateUser()" onclick="javascript:alert('Registro Actualizado')">
+                    Actualizar
+                </button>    
+            </form>
+        </div>
+    </div>
+</div>

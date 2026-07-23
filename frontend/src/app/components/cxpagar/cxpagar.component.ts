@@ -42,4 +42,26 @@ export class CxpagarComponent implements OnInit{
         
         }, err => console.error(err));
   }
+
+   AgregarValor(){
+    delete this.user.idcxp;   
+    this.Data.save(this.user,'/cxpagar')
+       .subscribe(
+         res => {
+
+this.getUser();
+         },
+         err => console.error(err)
+       );
+}
+  EliminarData(id: number){
+    this.Data.delete(id, '/cxpagar')
+      .subscribe(
+        res => {
+          this.getUser();
+        },
+        err => console.error(err)
+      );
+  }
+
 }

@@ -33,4 +33,25 @@ export class EncabezadocompraComponent implements OnInit{
         
         }, err => console.error(err));
   }
+
+  AgregarValor(){
+    delete this.user.num_compra;   
+    this.Data.save(this.user,'/encabezadocompra')
+       .subscribe(
+         res => {
+
+this.getUser();
+         },
+         err => console.error(err)
+       );
+}
+  EliminarData(id: number){
+    this.Data.delete(id, '/encabezadocompra')
+      .subscribe(
+        res => {
+          this.getUser();
+        },
+        err => console.error(err)
+      );
+  }
 }

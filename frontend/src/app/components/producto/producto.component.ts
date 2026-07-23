@@ -18,7 +18,7 @@ export class ProductoComponent implements OnInit{
       idempresa: null,
       idsuc: null,
       idtpprod: null,
-      descripcion: null,
+      descripcion: '',
       presentacion: null,
       marca: null,
       valor: null,
@@ -39,4 +39,27 @@ export class ProductoComponent implements OnInit{
         
         }, err => console.error(err));
   }
+
+    AgregarValor(){
+      delete this.user.num_prod;   
+      this.Data.save(this.user,'/producto')
+        .subscribe(
+          res => {
+
+  this.getUser();
+          },
+          err => console.error(err)
+        );
+  }
+
+    EliminarData(id: number){
+      this.Data.delete(id, '/producto')
+        .subscribe(
+          res => {
+            this.getUser();
+          },
+          err => console.error(err)
+        );
+    }
+
 }

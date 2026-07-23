@@ -29,4 +29,25 @@ export class FormapagoComponent implements OnInit {
         
         }, err => console.error(err));
   }
+
+    AgregarValor(){
+      delete this.user.idfpago;   
+      this.Data.save(this.user,'/formapago')
+        .subscribe(
+          res => {
+
+  this.getUser();
+          },
+          err => console.error(err)
+        );
+  }
+    EliminarData(id: number){
+      this.Data.delete(id, '/formapago')
+        .subscribe(
+          res => {
+            this.getUser();
+          },
+          err => console.error(err)
+        );
+    }
 }

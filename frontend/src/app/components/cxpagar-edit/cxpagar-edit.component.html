@@ -1,0 +1,95 @@
+<nav class="navbar navbar-dark bg-dark">
+    <a href="/" class="navbar-brand">CUENTAS POR PAGAR</a>
+</nav>
+
+<div class="row mt-5">
+    <div class="card">
+        <div class="card-body">
+            <form action="">
+                <div class="form-group">
+                    <label for="" class="control-label" hidden>Registro No.</label>
+                    <input type="text" readonly="readonly" [(ngModel)]="user.idcxp" name="idcxp" placeholder="No" class="form-control" required hidden>
+                </div>                  
+
+                <div class="form-group">
+                    <label for="" class="control-label">Número Compra</label>
+                    <input type="number" [(ngModel)]="user.num_compra" name="num_compra" placeholder="DIGITE EL NÚMERO DE COMPRA" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="control-label">ID Empresa</label>
+                    <input type="number" [(ngModel)]="user.idempresa" name="idempresa" placeholder="DIGITE EL ID EMPRESA" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="control-label">ID Sucursal</label>
+                    <input type="number" [(ngModel)]="user.idsuc" name="idsuc" placeholder="DIGITE EL ID SUCURSAL" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="control-label">ID Proveedor</label>
+                    <input type="number" [(ngModel)]="user.idprov" name="idprov" placeholder="DIGITE EL ID PROVEEDOR" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="control-label">User ID</label>
+                    <input type="number" [(ngModel)]="user.userid" name="userid" placeholder="DIGITE EL USER ID" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="control-label">ID Forma Pago</label>
+                    <input type="number" [(ngModel)]="user.idfpago" name="idfpago" placeholder="DIGITE EL ID FORMA PAGO" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="control-label">Fecha Compra</label>
+                    <input type="date" [(ngModel)]="user.fecha_compra" name="fecha_compra" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="control-label">Número Producto</label>
+                    <input type="number" [(ngModel)]="user.num_prod" name="num_prod" placeholder="DIGITE EL NÚMERO PRODUCTO" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="control-label">Cantidad</label>
+                    <input type="number" [(ngModel)]="user.cantidad" name="cantidad" placeholder="DIGITE LA CANTIDAD" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="control-label">Precio</label>
+                    <input type="number" [(ngModel)]="user.precio" name="precio" placeholder="DIGITE EL PRECIO" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="control-label">Subtotal</label>
+                    <input type="number" [(ngModel)]="user.subtotal" name="subtotal" placeholder="DIGITE EL SUBTOTAL" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="control-label">ISV</label>
+                    <input type="number" [(ngModel)]="user.isv" name="isv" placeholder="DIGITE EL ISV" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="control-label">Total</label>
+                    <input type="number" [(ngModel)]="user.total" name="total" placeholder="DIGITE EL TOTAL" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="control-label">Fecha Pago</label>
+                    <input type="date" [(ngModel)]="user.fecha_pago" name="fecha_pago" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="control-label">Estado</label>
+                    <input type="text" [(ngModel)]="user.estado" name="estado" placeholder="DIGITE EL ESTADO" class="form-control">
+                </div>
+
+                <button class="btn btn-success btn-block" (click)="updateUser()" onclick="javascript:alert('Registro Actualizado')">
+                    Actualizar
+                </button>    
+            </form>
+        </div>
+    </div>
+</div>

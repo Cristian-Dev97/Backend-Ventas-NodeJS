@@ -32,4 +32,27 @@ export class ProveedorComponent implements OnInit {
           
           }, err => console.error(err));
     }
+
+      AgregarValor(){
+    delete this.user.idprov;   
+    
+    this.Data.save(this.user,'/proveedor')
+       .subscribe(
+         res => {
+           this.getUser();
+         },
+         err => console.error(err)
+       );
+   }
+
+  EliminarData(id: number){
+    this.Data.delete(id, '/proveedor')
+      .subscribe(
+        res => {
+          this.getUser();
+        },
+        err => console.error(err)
+      );
+  }
+
 }

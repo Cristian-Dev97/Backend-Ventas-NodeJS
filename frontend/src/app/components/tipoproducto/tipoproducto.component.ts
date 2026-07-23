@@ -29,4 +29,25 @@ export class TipoproductoComponent implements OnInit {
         
         }, err => console.error(err));
   }
+
+      AgregarValor(){
+        delete this.user.idtpprod;   
+        this.Data.save(this.user,'/tipoproducto')
+          .subscribe(
+            res => {
+
+    this.getUser();
+            },
+            err => console.error(err)
+          );
+    }
+      EliminarData(id: number){
+        this.Data.delete(id, '/tipoproducto')
+          .subscribe(
+            res => {
+              this.getUser();
+            },
+            err => console.error(err)
+          );
+      }
 }

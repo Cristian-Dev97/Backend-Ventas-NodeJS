@@ -4,6 +4,7 @@ import { DataService } from '../../Services/data.service';
 import * as XLSX from 'xlsx';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import { ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-empresa',
@@ -28,6 +29,9 @@ export class EmpresaComponent implements OnInit {
     estado: 'Activo'
   }
 
+  @ViewChild('htmlData') htmlData!: ElementRef;
+  filterPost = '';
+
   constructor(private Data: DataService) { }
 
   ngOnInit(): void {
@@ -47,11 +51,11 @@ export class EmpresaComponent implements OnInit {
        .subscribe(
          res => {
 
-this.getUser();
-        },
-         err => console.error(err)
-      );
-}
+    this.getUser();
+            },
+            err => console.error(err)
+          );
+    }
 
   EliminarData(id: number){
     this.Data.delete(id, '/empresa')
@@ -62,6 +66,7 @@ this.getUser();
         err => console.error(err)
       );
   }
+
 
   exportToExcel(): void {
     let element = document.getElementById('tabla');

@@ -30,4 +30,25 @@ export class TipousuarioComponent {
         }, err => console.error(err));
   }
 
+  AgregarValor(){
+    delete this.user.idtpusuario;   
+    this.Data.save(this.user,'/tipousuario')
+       .subscribe(
+         res => {
+
+  this.getUser();
+          },
+          err => console.error(err)
+        );
+  }
+    EliminarData(id: number){
+      this.Data.delete(id, '/tipousuario')
+        .subscribe(
+          res => {
+            this.getUser();
+          },
+          err => console.error(err)
+        );
+    }
+
 }

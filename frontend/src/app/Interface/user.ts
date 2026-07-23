@@ -108,7 +108,7 @@ export interface producto{
     idempresa?: number | null;
     idsuc?: number | null;
     idtpprod?: number | null;
-    descripcion?: string | null;
+    descripcion?: string;
     presentacion?: string | null;
     marca?: string | null;
     valor?: number | null;

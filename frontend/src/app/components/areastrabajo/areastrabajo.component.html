@@ -2,6 +2,51 @@
     <a href="/" class="navbar-brand">REGISTRO DE ÁREAS DE TRABAJO</a>
 </nav>
 
+<div class="agregar_contenedor"></div>
+<div class="row mt-5">
+<div class="card">
+    <div class="card-body">
+        <form id="formulario" name="formulario" #f="ngForm" (ngSubmit)="AgregarValor()" novalidate >
+          
+          <!-- Primary Key (idarea) oculto -->
+          <div class="form-group">
+            <input type="text" readonly="readonly" [(ngModel)]="user.idarea" name="idarea" hidden>
+          </div>
+
+          <div class="form-group">
+              <label for="" class="control-label">ID Empresa</label>
+              <input type="number" [(ngModel)]="user.idempresa" name="idempresa" placeholder="DIGITE EL ID DE LA EMPRESA" class="form-control">
+          </div>
+
+          <div class="form-group">
+              <label for="" class="control-label">ID Sucursal</label>
+              <input type="number" [(ngModel)]="user.idsuc" name="idsuc" placeholder="DIGITE EL ID DE LA SUCURSAL" class="form-control">
+          </div>
+
+          <div class="form-group">
+              <label for="" class="control-label">Área</label>
+              <input type="text" [(ngModel)]="user.area" name="area" placeholder="DIGITE EL NOMBRE DEL ÁREA" class="form-control" autofocus>
+          </div>
+
+          <div class="form-group">
+            <label for="" class="control-label">Fecha Creación</label>
+            <input type="date" [(ngModel)]="user.fecha_creacion" name="fecha_creacion" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="" class="control-label">Estado</label>
+            <input type="text" [(ngModel)]="user.estado" name="estado" placeholder="Ej: Activo / Inactivo" class="form-control">
+          </div>
+
+          <button type="submit" class="btn btn-primary" formnovalidate value="Save" onclick="javascript:alert('Registro Almacenado')">
+              Agregar
+          </button>
+        </form>
+    </div>
+</div>
+</div>
+<br>
+
 <div class="container">  
     <div class="row mt-25">          
         <table class="table table-bordered table-hover">
@@ -24,10 +69,9 @@
                     <td>{{User.area}}</td>
                     <td>{{User.fecha_creacion | date:'dd/MM/yyyy'}}</td>
                     <td>{{User.estado}}</td>
-                    <!-- Agregamos white-space: nowrap para que los botones no se apilen -->
-                    <td style="white-space: nowrap;">  
-                        <button class="btn btn-danger btn-sm mx-1">Eliminar</button>
-                        <button class="btn btn-success btn-sm mx-1">Actualizar</button>
+                    <td>
+                        <button class="btn btn-danger" (click)="EliminarData(User.idarea)" onclick="javascript:alert('Registro Eliminado')">Eliminar</button>
+                        <button class="btn btn-success" [routerLink]="['/areastrabajo/edit', User.idarea]">Actualizar</button>
                     </td>
                 </tr>
             </tbody>

@@ -1,0 +1,51 @@
+<nav class="navbar navbar-dark bg-dark">
+  <a href="/" class="navbar-brand">SUCURSALES</a>
+</nav>
+
+<div class="row mt-5">
+  <div class="card">
+    <div class="card-body">
+      <form id="formulario" name="formulario" #f="ngForm" (ngSubmit)="updateUser()" novalidate>
+        
+        <!-- Campo oculto para idsuc -->
+        <div class="form-group">
+          <input type="text" readonly="readonly" [(ngModel)]="user.idsuc" name="idsuc" hidden>
+        </div>                  
+
+        <!-- Campo para idempresa -->
+        <div class="form-group">
+            <label class="control-label">ID Empresa</label>
+            <input type="number" [(ngModel)]="user.idempresa" name="idempresa" placeholder="DIGITE EL ID DE LA EMPRESA" class="form-control" autofocus>
+        </div>
+
+        <!-- Campo para sucursal -->
+        <div class="form-group">
+            <label class="control-label">Sucursal</label>
+            <input type="text" [(ngModel)]="user.sucursal" name="sucursal" placeholder="DIGITE LA SUCURSAL" class="form-control">
+        </div>
+
+        <!-- Campo para dirsuc (Dirección) -->
+        <div class="form-group">
+          <label class="control-label">Dirección</label>
+          <input type="text" [(ngModel)]="user.dirsuc" name="dirsuc" placeholder="DIGITE LA DIRECCIÓN" class="form-control">
+        </div>
+
+        <!-- Campo para telefono -->
+        <div class="form-group">
+          <label class="control-label">Teléfono</label>
+          <input type="text" [(ngModel)]="user.telefono" name="telefono" placeholder="DIGITE EL TELEFONO" class="form-control">
+        </div>
+
+        <!-- Campo para estado -->
+        <div class="form-group">
+          <label class="control-label">Estado</label>
+          <input type="text" [(ngModel)]="user.estado" name="estado" placeholder="Ej: Activo / Inactivo" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-success btn-block" onclick="javascript:alert('Registro Actualizado')">
+          Actualizar
+        </button>    
+      </form>
+    </div>
+  </div>
+</div>

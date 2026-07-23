@@ -9,6 +9,7 @@ import { DataService } from '../../Services/data.service';
 })
 export class AreastrabajoComponent implements OnInit {
     TUser: any = [];
+    valorInput: number | undefined;
     user: areastrabajo = {
     idarea: null,
     idempresa: null,
@@ -32,8 +33,8 @@ export class AreastrabajoComponent implements OnInit {
     }
 
       AgregarValor(){
-    delete this.user.idempresa;   
-    this.Data.save(this.user,'/empresa')
+    delete this.user.idarea;   
+    this.Data.save(this.user,'/areastrabajo')
        .subscribe(
          res => {
 
@@ -44,7 +45,7 @@ export class AreastrabajoComponent implements OnInit {
     }
 
       EliminarData(id: number){
-        this.Data.delete(id, '/empresa')
+        this.Data.delete(id, '/areastrabajo')
           .subscribe(
             res => {
               this.getUser();

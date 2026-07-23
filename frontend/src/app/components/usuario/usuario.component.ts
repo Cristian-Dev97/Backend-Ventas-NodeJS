@@ -34,4 +34,25 @@ export class UsuarioComponent implements OnInit {
         
         }, err => console.error(err));
   }
+
+    AgregarValor(){
+      delete this.user.userid;   
+      this.Data.save(this.user,'/usuario')
+        .subscribe(
+          res => {
+
+  this.getUser();
+          },
+          err => console.error(err)
+        );
+  }
+    EliminarData(id: number){
+      this.Data.delete(id, '/usuario')
+        .subscribe(
+          res => {
+            this.getUser();
+          },
+          err => console.error(err)
+        );
+    }
 }

@@ -30,6 +30,24 @@ import { HttpClientModule } from '@angular/common/http';
 import { EmpresaEditComponent } from './components/empresa-edit/empresa-edit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavegacionComponent } from './components/navegacion/navegacion.component';
+import { AreastrabajoEditComponent } from './components/areastrabajo-edit/areastrabajo-edit.component';
+import { SucursalesEditComponent } from './components/sucursales-edit/sucursales-edit.component';
+import { ProveedorEditComponent } from './components/proveedor-edit/proveedor-edit.component';
+import { EmpleadosEditComponent } from './components/empleados-edit/empleados-edit.component';
+import { TipousuarioEditComponent } from './components/tipousuario-edit/tipousuario-edit.component';
+import { UsuarioEditComponent } from './components/usuario-edit/usuario-edit.component';
+import { ClientesEditComponent } from './components/clientes-edit/clientes-edit.component';
+import { TipoproductoEditComponent } from './components/tipoproducto-edit/tipoproducto-edit.component';
+import { ProductoEditComponent } from './components/producto-edit/producto-edit.component';
+import { FilterempresaPipe } from './pipe/filterempresa.pipe';
+import { FormapagoEditComponent } from './components/formapago-edit/formapago-edit.component';
+import { EncabezadocompraEditComponent } from './components/encabezadocompra-edit/encabezadocompra-edit.component';
+import { DetallecompraEditComponent } from './components/detallecompra-edit/detallecompra-edit.component';
+import { EncabezadoventaEditComponent } from './components/encabezadoventa-edit/encabezadoventa-edit.component';
+import { DetalleventaEditComponent } from './components/detalleventa-edit/detalleventa-edit.component';
+import { CxcobrarEditComponent } from './components/cxcobrar-edit/cxcobrar-edit.component';
+import { CxpagarEditComponent } from './components/cxpagar-edit/cxpagar-edit.component';
+import { PagosEditComponent } from './components/pagos-edit/pagos-edit.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +71,25 @@ import { NavegacionComponent } from './components/navegacion/navegacion.componen
     CxpagarComponent,
     PagosComponent,
     EmpresaEditComponent,
-    NavegacionComponent
+    NavegacionComponent,
+    AreastrabajoEditComponent,
+    SucursalesEditComponent,
+    ProveedorEditComponent,
+    EmpleadosEditComponent,
+    TipousuarioEditComponent,
+    UsuarioEditComponent,
+    ClientesEditComponent,
+    TipoproductoEditComponent,
+    ProductoEditComponent,
+    FilterempresaPipe,
+    FormapagoEditComponent,
+    EncabezadocompraEditComponent,
+    DetallecompraEditComponent,
+    EncabezadoventaEditComponent,
+    DetalleventaEditComponent,
+    CxcobrarEditComponent,
+    CxpagarEditComponent,
+    PagosEditComponent
   ],
   imports: [
     BrowserModule,

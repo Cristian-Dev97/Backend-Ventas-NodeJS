@@ -38,4 +38,25 @@ export class EmpleadosComponent implements OnInit {
         }, err => console.error(err));
   }
 
+  AgregarValor(){
+    delete this.user.idemp;   
+    this.Data.save(this.user,'/empleados')
+       .subscribe(
+         res => {
+
+    this.getUser();
+            },
+            err => console.error(err)
+          );
+    }
+  EliminarData(id: number){
+    this.Data.delete(id, '/empleados')
+      .subscribe(
+        res => {
+          this.getUser();
+        },
+        err => console.error(err)
+      );
+  }
+
 }

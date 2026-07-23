@@ -40,4 +40,26 @@ export class PagosComponent implements OnInit{
         
         }, err => console.error(err));
   }
+
+    AgregarValor(){
+      delete this.user.idpago;   
+      this.Data.save(this.user,'/pagos')
+        .subscribe(
+          res => {
+
+  this.getUser();
+          },
+          err => console.error(err)
+        );
+  }
+    EliminarData(id: number){
+      this.Data.delete(id, '/pagos')
+        .subscribe(
+          res => {
+            this.getUser();
+          },
+          err => console.error(err)
+        );
+    }
+
 }

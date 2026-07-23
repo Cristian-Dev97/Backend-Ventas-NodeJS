@@ -2,6 +2,63 @@
     <a href="/" class="navbar-brand">REGISTRO DE ENCABEZADOS DE COMPRAS</a>
 </nav>
 
+<div class="agregar_contenedor"></div>
+<div class="row mt-5">
+<div class="card">
+    <div class="card-body">
+        <form id="formulario" name="formulario" #f="ngForm" (ngSubmit)="AgregarValor()" novalidate >
+          
+          <!-- Primary Key (ÚNICO CAMPO OCULTO) -->
+          <div class="form-group">
+            <label for="" class="control-label" hidden>Registro No.</label>
+            <input type="text" readonly="readonly" [(ngModel)]="user.num_compra" name="num_compra" placeholder="No" class="form-control" required hidden>
+          </div>                  
+
+          <div class="form-group">
+              <label for="" class="control-label">ID Empresa</label>
+              <input type="number" [(ngModel)]="user.idempresa" name="idempresa" placeholder="DIGITE EL ID EMPRESA" class="form-control" autofocus>
+          </div>
+
+          <div class="form-group">
+              <label for="" class="control-label">ID Sucursal</label>
+              <input type="number" [(ngModel)]="user.idsuc" name="idsuc" placeholder="DIGITE EL ID SUCURSAL" class="form-control">
+          </div>
+
+          <div class="form-group">
+              <label for="" class="control-label">ID Proveedor</label>
+              <input type="number" [(ngModel)]="user.idprov" name="idprov" placeholder="DIGITE EL ID PROVEEDOR" class="form-control">
+          </div>
+
+          <div class="form-group">
+              <label for="" class="control-label">ID Usuario</label>
+              <input type="number" [(ngModel)]="user.userid" name="userid" placeholder="DIGITE EL ID USUARIO" class="form-control">
+          </div>
+
+          <div class="form-group">
+              <label for="" class="control-label">ID Forma Pago</label>
+              <input type="number" [(ngModel)]="user.idfpago" name="idfpago" placeholder="DIGITE EL ID FORMA PAGO" class="form-control">
+          </div>
+
+          <div class="form-group">
+              <label for="" class="control-label">Fecha Compra</label>
+              <input type="date" [(ngModel)]="user.fecha_compra" name="fecha_compra" class="form-control">
+          </div>
+
+          <div class="form-group">
+              <label for="" class="control-label">Estado</label>
+              <input type="text" [(ngModel)]="user.estado" name="estado" placeholder="Ej: Activo / Inactivo" class="form-control">
+          </div>
+
+          <!-- Botón con sus eventos originales intactos -->
+          <button type="submit" class="btn btn-primary" formnovalidate value="Save" onclick="javascript:alert('Registro Almacenado')">
+              Agregar
+          </button>
+        </form>
+    </div>
+</div>
+</div>
+<br>
+
 <div class="container">  
     <div class="row mt-25">          
         <table class="table table-bordered table-hover">
@@ -28,9 +85,9 @@
                     <td>{{User.idfpago}}</td>
                     <td>{{User.fecha_compra}}</td>
                     <td>{{User.estado}}</td>
-                    <td style="white-space: nowrap;">  
-                        <button class="btn btn-danger btn-sm mx-1">Eliminar</button>
-                        <button class="btn btn-success btn-sm mx-1">Actualizar</button>
+                    <td>
+                        <button class="btn btn-danger" (click)="EliminarData(User.num_compra)" onclick="javascript:alert('Registro Eliminado')">Eliminar</button>
+                        <button class="btn btn-success" [routerLink]="['/encabezadocompra/edit', User.num_compra]">Actualizar</button>
                     </td>
                 </tr>
             </tbody>
